@@ -2,11 +2,14 @@ import { Module } from '@nestjs/common';
 import { SoftSkillsService } from './soft-skills.service';
 import { SoftSkillsController } from './soft-skills.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Other, OtherSchema } from '../schemas/OtherSchema';
+import { Other } from '../schemas/OtherSchema';
+import { SoftSkills, SoftSkillsSchema } from '../schemas/SoftSkillsSchema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Other.name, schema: OtherSchema }]),
+    MongooseModule.forFeature([
+      { name: SoftSkills.name, schema: SoftSkillsSchema },
+    ]),
   ],
   controllers: [SoftSkillsController],
   providers: [SoftSkillsService],
